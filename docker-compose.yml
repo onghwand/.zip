@@ -1,0 +1,40 @@
+services:
+  redis:
+    image: redis:alpine
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "100m"
+    restart: unless-stopped
+    networks:
+      - develop_network
+
+  application:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "100m"
+    ports:
+      - 8080:8080
+    environment:
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+      AWS_BUCKET_NAME: "${AWS_BUCKET_NAME}"
+      AWS_DEFAULT_REGION: "${AWS_DEFAULT_REGION}"
+      SPRING_DATASOURCE_URL : "${SPRING_DATASOURCE_URL}"
+      SPRING_DATASOURCE_USERNAME : "${SPRING_DATASOURCE_USERNAME}"
+      SPRING_DATASOURCE_PASSWORD : "${SPRING_DATASOURCE_PASSWORD}"
+      SPRING_REDIS_HOST : "${SPRING_REDIS_HOST}"
+      SPRING_REDIS_PORT : "${SPRING_REDIS_PORT}"
+      KAKAO_CLIENT_ID : "${KAKAO_CLIENT_ID}"
+    networks:
+      - develop_network
+
+networks:
+  develop_network:

@@ -1,0 +1,84 @@
+= Zip API Docs
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+
+[[introduction]]
+== 소개
+
+LG U+ 인턴십 서비스프로토타입개발팀
+
+`🏠부동산 가격 조회 서비스 개발` Zip Rest API 명세서입니다.
+
+[[commont]]
+== 공통사항
+
+=== Header
+
+|===
+| name | 설명
+
+| `authorization`
+| 리뷰・댓글 생성 및 삭제 API를 사용하기 위한 AccessToken
+|===
+
+---
+
+[[회원]]
+== 회원
+
+=== 로그인 API
+
+==== Http Request
+include::{snippets}/login-api/http-request.adoc[]
+
+==== Request Headers
+include::{snippets}/login-api/request-headers.adoc[]
+
+==== Http Response
+include::{snippets}/login-api/http-response.adoc[]
+
+==== Response fields
+include::{snippets}/login-api/response-fields.adoc[]
+
+---
+
+=== 로그아웃 API
+
+==== Http Request
+include::{snippets}/logout-api/http-request.adoc[]
+
+==== Request Headers
+include::{snippets}/logout-api/request-headers.adoc[]
+
+==== Http Response
+include::{snippets}/logout-api/http-response.adoc[]
+
+=== 회원정보조회 API
+
+==== Http Request
+include::{snippets}/login-user-info-api/http-request.adoc[]
+
+==== Http Response
+include::{snippets}/login-user-info-api/http-response.adoc[]
+
+---
+
+[[지도]]
+== 지도
+
+=== 지도의 핀 정보 조회 API
+
+==== Http Request
+include::{snippets}/pin-list-api/http-request.adoc[]
+
+==== Request parameters
+include::{snippets}/pin-list-api/request-parameters.adoc[]
+
+==== Http Response
+include::{snippets}/pin-list-api/http-response.adoc[]
+
+

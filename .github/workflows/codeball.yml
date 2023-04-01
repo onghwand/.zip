@@ -1,0 +1,22 @@
+name: Codeball
+on: [pull_request]
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+jobs:
+  codeball_job:
+    runs-on: ubuntu-latest
+    name: Codeball
+    steps:
+      - name: Codeball
+        uses: sturdy-dev/codeball-action@v2
+        with:
+          approvePullRequests: "true"
+          labelPullRequestsWhenApproved: "false"
+          labelPullRequestsWhenReviewNeeded: "false"
+          failJobsWhenReviewNeeded: "false"
+          codeSuggestionsFromComments: "true"
+          approveThreshold: "0.630"
+          carefulReviewThreshold: "0.300"
